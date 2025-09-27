@@ -31,9 +31,66 @@
         </div>
     </nav>
     <!-- To do, Done, In progress -->
-<div>
-    
-</div>
+    <div class="container mx-6 p-8">
+        <h1 class="text-xl font-mono font-bold mb-6 flex items-center justify-center">Task Management Board</h1>
+        <div class="flex flex-wrap gap-4">
+          
+            <div class="bg-amber-100 rounded-lg p-4 w-80 flex-shrink-0">
+                <h2 class="text-xl font-semibold mb-4">To Do</h2>
+                <div class="space-y-2 mb-4">
+                   
+                </div>
+                <!-- Add Card Section -->
+                <div class="bg-white p-3 rounded shadow">
+                    <form>
+                        <input type="text" placeholder="Task Name" class="w-full mb-2 p-1 border rounded">
+                        <input type="date" placeholder="Due Date" class="w-full mb-2 p-1 border rounded">
+                        <button type="submit" class="bg-amber-800 text-white px-4 py-1 rounded">Add Card</button>
+                    </form>
+                    
+                </div>
+    </div>
+    <div class="bg-amber-100 rounded-lg p-4 w-80 flex-shrink-0">
+                <h2 class="text-xl font-semibold mb-4">In Progress</h2>
+                <div class="space-y-2 mb-4">
+                </div>
+
+                <div class="bg-white p-3 rounded shadow">
+                    <form>
+                        <input type="text" placeholder="Task Name" class="w-full mb-2 p-1 border rounded">
+                        <input type="date" placeholder="Due Date" class="w-full mb-2 p-1 border rounded">
+                        <button type="submit" class="bg-amber-800 text-white px-4 py-1 rounded">Add Card</button>
+                    </form>
+        
+                </div>
+            </div>
+             <!-- Done -->
+             <div class="bg-amber-100 rounded-lg p-4 w-80 flex-shrink-0">
+                <h2 class="text-xl font-semibold mb-4">Done</h2>
+                <div class="space-y-2 mb-4">
+                  </div>
+                <div class="bg-white p-3 rounded shadow">
+                    <form>
+                        <input type="text" placeholder="Task Name" class="w-full mb-2 p-1 border rounded">
+                        <input type="date" placeholder="Due Date" class="w-full mb-2 p-1 border rounded">
+                        <button type="submit" class="bg-amber-800 text-white px-4 py-1 rounded">Add Card</button>
+                    </form>
+                </div>
+            </div>
+            <!-- add task section -->
+            <div class="bg-amber-100 rounded-lg p-4 w-80 flex-shrink-0 flex items-center justify-center">
+                <div class="text-center">
+                    <button class="bg-amber-100 text-black px-4 py-2 rounded">Add Another List</button>
+        
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
     
 </body>
 </html>
