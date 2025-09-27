@@ -7,7 +7,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="script.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
 </head>
 <body class="bg-amber-900">
     <!-- navigation bar -->
@@ -17,84 +16,97 @@
         </div>
         <div class="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4 w-full sm:w-auto">
             <form class="flex items-center w-full sm:w-64">
-                <input type="text" placeholder="Search Task  " class="w-64 p-2 border border-amber-800
-                rounded-l-md focus:outline-none focus:ring-2 focus:ring-amber-300">
-                <button type="submit" class="bg-amber-500 text-amber-700 px-4 py-2 rounded-r-md
-                hover:bg-amber-400 transition">
-                <i class="fas fa-magnifying-glass"></i>
+                <input type="text" placeholder="Search Task" class="w-full p-2 border border-amber-800 rounded-l-md focus:outline-none focus:ring-2 focus:ring-amber-300">
+                <button type="submit" class="bg-amber-500 text-amber-700 px-4 py-2 rounded-r-md hover:bg-amber-400 transition">
+                    <i class="fas fa-magnifying-glass"></i>
+                </button>
+            </form>
+            <!-- Bell -->
+            <button class="text-amber-700 hover:text-gray-500 transition">
+                <i class="fa-regular fa-bell"></i>
             </button>
-        </form>
-        <!-- Bell -->
-        <button class="text-amber-700 hover:text-gray-500 transition">
-            <i class="fa-regular fa-bell"></i>
-        </button>
-        <div class="flex rounded-full font-semibold w-10 h-10 justify-center items-center text-white bg-amber-500">IR</div>
+            <div class="flex rounded-full font-semibold w-10 h-10 justify-center items-center text-white bg-amber-500">IR</div>
         </div>
     </nav>
-    <!-- To do, Done, In progress -->
-    <div class="container mx-6 p-8">
-        <h1 class="text-xl font-mono font-bold mb-6 flex items-center justify-center">Task Management Board</h1>
-        <div class="flex flex-wrap justify-center mb-6 gap-4">
-            <button class="filter-btn bg-amber-500 text-white px-4 py-2 rounded hover:bg-amber-600 transition" data-filter="all">
+
+    <!-- Main Content Container -->
+    <div class="container mx-auto px-4 sm:px-8 py-8">
+        <!-- Page Title -->
+        <h1 class="text-xl font-mono font-bold mb-6 text-center">Task Management Board</h1>
+        
+        <!-- FILTER BUTTONS -->
+        <div class="flex flex-col sm:flex-row justify-center mb-8 gap-2 sm:gap-4">
+            <button class="filter-btn bg-amber-500 text-white px-4 py-2 rounded hover:bg-amber-600 transition text-sm sm:text-base" data-filter="all">
                 View All
             </button>
-            <button class="filter-btn bg-amber-200 text-amber-800 px-4 py-2 rounded hover:bg-amber-300 transition" data-filter="pending">
+            <button class="filter-btn bg-amber-200 text-amber-800 px-4 py-2 rounded hover:bg-amber-300 transition text-sm sm:text-base" data-filter="pending">
                 Pending Tasks
             </button>
-            <button class="filter-btn bg-amber-300 text-white px-4 py-2 rounded hover:bg-amber-600 transition" data-filter="completed">
+            <button class="filter-btn bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition text-sm sm:text-base" data-filter="completed">
                 Completed Tasks
             </button>
         </div>
-          <div class="flex flex-wrap gap-4">
-            <div class="bg-amber-100 rounded-lg p-4 w-80 flex-shrink-0">
-                <h2 class="text-xl font-semibold mb-4">To Do(pending) </h2>
+
+        <!-- COLUMNS CONTAINER -->
+        <div class="flex flex-col lg:flex-row justify-center gap-4">
+            <!-- To Do Column -->
+            <div class="bg-amber-100 rounded-lg p-4 w-full lg:w-80 flex-shrink-0 min-h-96">
+                <h2 class="text-xl font-semibold mb-4">To Do (pending)</h2>
                 <div class="space-y-2 mb-4">
-                   
+                    <!-- Tasks will appear here -->
                 </div>
                 <!-- Add Card Section -->
                 <div class="bg-white p-3 rounded shadow">
-                    <form>
-                        <input type="text" placeholder="Task Name" class="w-full mb-2 p-1 border rounded">
-                        <input type="date" placeholder="Due Date" class="w-full mb-2 p-1 border rounded">
-                        <button type="submit" class="bg-amber-800 text-white px-4 py-1 rounded">Add Card</button>
-                    </form>
-                    
-                </div>
-    </div>
-    <!-- <div class="bg-amber-100 rounded-lg p-4 w-80 flex-shrink-0">
-                <h2 class="text-xl font-semibold mb-4">In Progress</h2>
-                <div class="space-y-2 mb-4">
-                </div>
-
-                <div class="bg-white p-3 rounded shadow">
-                    <form>
-                        <input type="text" placeholder="Task Name" class="w-full mb-2 p-1 border rounded">
-                        <input type="date" placeholder="Due Date" class="w-full mb-2 p-1 border rounded">
-                        <button type="submit" class="bg-amber-800 text-white px-4 py-1 rounded">Add Card</button>
-                    </form>
-        
-                </div>
-            </div> -->
-             <!-- Done -->
-             <div class="bg-amber-100 rounded-lg p-4 w-80 flex-shrink-0">
-                <h2 class="text-xl font-semibold mb-4">Done(completed)</h2>
-                <div class="space-y-2 mb-4">
-                  </div>
-                <div class="bg-white p-3 rounded shadow">
-                    <form>
-                        <input type="text" placeholder="Task Name" class="w-full mb-2 p-1 border rounded">
-                        <input type="date" placeholder="Due Date" class="w-full mb-2 p-1 border rounded">
-                        <button type="submit" class="bg-amber-800 text-white px-4 py-1 rounded">Add Card</button>
+                    <form class="add-task-form">
+                        <input type="text" placeholder="Task Name" class="w-full mb-2 p-2 border rounded text-sm sm:text-base" required>
+                        <input type="date" placeholder="Due Date" class="w-full mb-2 p-2 border rounded text-sm sm:text-base">
+                        <button type="submit" class="bg-amber-800 text-white px-4 py-2 rounded w-full text-sm sm:text-base">Add Card</button>
                     </form>
                 </div>
             </div>
-            <!-- add task section -->
-            <div class="bg-amber-100 rounded-lg p-4 w-80 flex-shrink-0 flex items-center justify-center">
+
+            <!-- Done Column -->
+            <div class="bg-amber-100 rounded-lg p-4 w-full lg:w-80 flex-shrink-0 min-h-96">
+                <h2 class="text-xl font-semibold mb-4">Done (completed)</h2>
+                <div class="space-y-2 mb-4">
+                    <!-- Tasks will appear here -->
+                </div>
+                <div class="bg-white p-3 rounded shadow">
+                    <form class="add-task-form">
+                        <input type="text" placeholder="Task Name" class="w-full mb-2 p-2 border rounded text-sm sm:text-base" required>
+                        <input type="date" placeholder="Due Date" class="w-full mb-2 p-2 border rounded text-sm sm:text-base">
+                        <button type="submit" class="bg-amber-800 text-white px-4 py-2 rounded w-full text-sm sm:text-base">Add Card</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Add Another List Column -->
+            <div class="bg-amber-100 rounded-lg p-4 w-full lg:w-80 flex-shrink-0 min-h-96 flex items-center justify-center">
                 <div class="text-center">
-                    <button class="bg-amber-100 text-black px-4 py-2 rounded">Add Another List</button>
-        
+                    <button id="add-list-btn" class="bg-amber-500 text-white px-4 py-2 rounded hover:bg-amber-600 transition text-sm sm:text-base">
+                        <i class="fas fa-plus mr-2"></i>Add Another List
+                    </button>
+                    
+                    <!-- This form will appear when clicking "Add Another List" -->
+                    <div id="add-list-form" class="hidden bg-white p-4 rounded shadow mt-4">
+                        <form id="new-list-form">
+                            <input type="text" placeholder="List Name (e.g., 'Urgent', 'Backlog')" 
+                                   class="w-full mb-3 p-2 border rounded text-sm" required>
+                            <div class="flex space-x-2">
+                                <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded flex-1 hover:bg-green-600">
+                                    Create List
+                                </button>
+                                <button type="button" id="cancel-list-btn" class="bg-gray-300 text-gray-700 px-4 py-2 rounded flex-1 hover:bg-gray-400">
+                                    Cancel
+                                </button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-  </body>
+    </div>
+
+    <!-- JavaScript will be added here -->
+</body>
 </html>
