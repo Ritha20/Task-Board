@@ -5,17 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task Management Board</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="script.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 </head>
 <body class="bg-amber-900">
     <!-- navigation bar -->
-    <nav class="bg-white shadow p-4 flex justify-between items-center">
+    <nav class="bg-white shadow p-4 flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
         <div class="flex items-center space-x-4">
-            <h1 class="text-2xl font-bold text-gray-600">Task Board</h1>
+            <h1 class="text-2xl font-bold font-mono italic text-amber-600">Task Board</h1>
         </div>
-        <div class="flex items-center space-x-4">
-            <form class="flex items-center">
+        <div class="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4 w-full sm:w-auto">
+            <form class="flex items-center w-full sm:w-64">
                 <input type="text" placeholder="Search Task  " class="w-64 p-2 border border-amber-800
                 rounded-l-md focus:outline-none focus:ring-2 focus:ring-amber-300">
                 <button type="submit" class="bg-amber-500 text-amber-700 px-4 py-2 rounded-r-md
@@ -33,10 +34,20 @@
     <!-- To do, Done, In progress -->
     <div class="container mx-6 p-8">
         <h1 class="text-xl font-mono font-bold mb-6 flex items-center justify-center">Task Management Board</h1>
-        <div class="flex flex-wrap gap-4">
-          
+        <div class="flex flex-wrap justify-center mb-6 gap-4">
+            <button class="filter-btn bg-amber-500 text-white px-4 py-2 rounded hover:bg-amber-600 transition" data-filter="all">
+                View All
+            </button>
+            <button class="filter-btn bg-amber-200 text-amber-800 px-4 py-2 rounded hover:bg-amber-300 transition" data-filter="pending">
+                Pending Tasks
+            </button>
+            <button class="filter-btn bg-amber-300 text-white px-4 py-2 rounded hover:bg-amber-600 transition" data-filter="completed">
+                Completed Tasks
+            </button>
+        </div>
+          <div class="flex flex-wrap gap-4">
             <div class="bg-amber-100 rounded-lg p-4 w-80 flex-shrink-0">
-                <h2 class="text-xl font-semibold mb-4">To Do</h2>
+                <h2 class="text-xl font-semibold mb-4">To Do(pending) </h2>
                 <div class="space-y-2 mb-4">
                    
                 </div>
@@ -50,7 +61,7 @@
                     
                 </div>
     </div>
-    <div class="bg-amber-100 rounded-lg p-4 w-80 flex-shrink-0">
+    <!-- <div class="bg-amber-100 rounded-lg p-4 w-80 flex-shrink-0">
                 <h2 class="text-xl font-semibold mb-4">In Progress</h2>
                 <div class="space-y-2 mb-4">
                 </div>
@@ -63,10 +74,10 @@
                     </form>
         
                 </div>
-            </div>
+            </div> -->
              <!-- Done -->
              <div class="bg-amber-100 rounded-lg p-4 w-80 flex-shrink-0">
-                <h2 class="text-xl font-semibold mb-4">Done</h2>
+                <h2 class="text-xl font-semibold mb-4">Done(completed)</h2>
                 <div class="space-y-2 mb-4">
                   </div>
                 <div class="bg-white p-3 rounded shadow">
@@ -85,12 +96,5 @@
                 </div>
             </div>
         </div>
-
-
-
-
-
-
-    
-</body>
+  </body>
 </html>
