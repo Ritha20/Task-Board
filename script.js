@@ -208,3 +208,38 @@ function renderFilteredTasks(filteredTasks) {
     });
 }
 // Adding other list
+function setupAddList() {
+    const addListBtn = document.getElementById('add-list-btn');
+    const addListForm = document.getElementById('add-list-form');
+    const cancelListBtn = document.getElementById('cancel-list-btn');
+    const newListForm = document.getElementById('new-list-form');
+    
+    if (addListBtn && addListForm) {
+        addListBtn.addEventListener('click', function() {
+            addListForm.classList.remove('hidden');
+            this.classList.add('hidden');
+        });
+        
+        cancelListBtn.addEventListener('click', function() {
+            addListForm.classList.add('hidden');
+            addListBtn.classList.remove('hidden');
+            newListForm.reset();
+        });
+        
+        newListForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const listNameInput = this.querySelector('input[type="text"]');
+            const listName = listNameInput.value.trim();
+            
+            if (listName) {
+                alert(`New list "${listName}" would be created here!`);
+                // In a full implementation, you would add new column HTML
+                
+                // Reset and hide form
+                addListForm.classList.add('hidden');
+                addListBtn.classList.remove('hidden');
+                this.reset();
+            }
+        });
+    }
+}
