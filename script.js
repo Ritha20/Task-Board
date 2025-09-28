@@ -243,3 +243,16 @@ function setupAddList() {
         });
     }
 }
+
+// Initialization of the page
+document.addEventListener('DOMContentLoaded', function() {
+    renderTasks();
+    setupAddTaskForms();
+    setupDeleteTasks();
+    setupStatusToggle();
+    setupEditTasks();
+    setupFilters();
+    setupAddList();
+    
+    console.log("Task Management Board fully loaded!");
+});
