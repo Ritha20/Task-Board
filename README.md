@@ -19,5 +19,5 @@ Tailwind CSS
 Javascript
 
 Screenshot of the project:
-
+![Task Board](https://github.com/Ritha20/Task-Board/blob/bea5f0f2fe2bafe94ce7838934e942d09c738ad0/Screenshot%202025-09-28%20at%2021.57.38.png)
 
