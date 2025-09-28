@@ -45,7 +45,7 @@ function createTaskCard(task) {
         </div>
         <div class="flex justify-between items-center text-sm">
             <span class="text-gray-600">Due: ${displayDate}</span>
-            <button class="status-btn ${task.status === 'pending' ? 'bg-green-500 hover:bg-green-600' : 'bg-gray-500 hover:bg-gray-600'} text-white px-2 py-1 rounded text-xs" data-id="${task.id}">
+            <button class="status-btn ${task.status === 'pending' ? 'bg-amber-500 hover:bg-amber-600' : 'bg-gray-500 hover:bg-gray-600'} text-white px-2 py-1 rounded text-xs" data-id="${task.id}">
                 ${task.status === 'pending' ? 'Mark Complete' : 'Mark Incomplete'}
             </button>
         </div>
@@ -93,4 +93,20 @@ function setupAddTaskForms() {
             console.log('New task added:', newTask);
         });
     });
+}
+// Deleting the task 
+function setupDeleteTasks() {
+    document.addEventListener('click',function(e){
+        if (e.target.closest('.delete-btn')) {
+            const taskId = parseInt(e.target.closest('.delete-btn').getAttribute('data-id'));
+
+            if (confirm('are you sure you want to delete this task?')) {
+                tasks = tasks.filter(task=>task.id!==taskId);
+
+                renderTasks();
+                console.log("Task Deleted:",taskId)
+
+            }
+        }
+    })
 }
