@@ -6,3 +6,21 @@ let tasks = [
     {id:5, name:"preparing", dueDate:"2025-11-04", status:"pending"}
 ];
 let nextId = 6;
+
+// Rendering task to DOM
+function renderTasks() {
+    const todoContainer = document.querySelector('.bg-amber-100:first-child .space-y-2');
+    const doneContainer = document.querySelector('.bg-amber-100:nth-child(2) .space-y-2');
+
+    todoContainer.innerHTML = '';
+    doneContainer.innerHTML = '';
+
+    tasks.forEach(task => {
+        const taskCard = createTaskCard(task);
+        if (task.status === 'pending') {
+            todoContainer.appendChild(taskCard);
+        } else if (task.status === 'completed') {
+            doneContainer.appendChild(taskCard);
+        }
+    });
+}
