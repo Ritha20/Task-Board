@@ -158,3 +158,53 @@ function setupEditTasks() {
         }
     });
 }
+
+// adding functionality to filter
+function setupFilters() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const filter = this.getAttribute('data-filter');
+            
+            // Remove active class from all buttons
+            filterButtons.forEach(btn => btn.classList.remove('bg-amber-600', 'text-white'));
+            
+            // Add active class to clicked button
+            this.classList.add('bg-amber-600', 'text-white');
+            
+            let filteredTasks = tasks;
+            
+            switch(filter) {
+                case 'pending':
+                    filteredTasks = tasks.filter(task => task.status === 'pending');
+                    break;
+                case 'completed':
+                    filteredTasks = tasks.filter(task => task.status === 'completed');
+                    break;
+                // 'all' shows all tasks
+            }
+            
+            // Re-render with filtered tasks
+            renderFilteredTasks(filteredTasks);
+        });
+    });
+}
+
+function renderFilteredTasks(filteredTasks) {
+    const todoContainer = document.querySelector('.bg-amber-100:first-child .space-y-2');
+    const doneContainer = document.querySelector('.bg-amber-100:nth-child(2) .space-y-2');
+    
+    todoContainer.innerHTML = '';
+    doneContainer.innerHTML = '';
+    
+    filteredTasks.forEach(task => {
+        const taskCard = createTaskCard(task);
+        if (task.status === 'pending') {
+            todoContainer.appendChild(taskCard);
+        } else if (task.status === 'completed') {
+            doneContainer.appendChild(taskCard);
+        }
+    });
+}
+// Adding other list
