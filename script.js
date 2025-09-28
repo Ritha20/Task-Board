@@ -110,3 +110,51 @@ function setupDeleteTasks() {
         }
     })
 }
+
+// making the toogling between pending and completed
+function setupStatusToggle() {
+    document.addEventListener('click', function(e) {
+        if (e.target.closest('.status-btn')) {
+            const taskId = parseInt(e.target.closest('.status-btn').getAttribute('data-id'));
+            
+            // Find and update task
+            const task = tasks.find(task => task.id === taskId);
+            if (task) {
+                task.status = task.status === 'pending' ? 'completed' : 'pending';
+                
+                // Re-render tasks
+                renderTasks();
+                
+                console.log('Task status updated:', task);
+            }
+        }
+    });
+}
+
+// Editing the task functionality
+function setupEditTasks() {
+    document.addEventListener('click', function(e) {
+        if (e.target.closest('.edit-btn')) {
+            const taskId = parseInt(e.target.closest('.edit-btn').getAttribute('data-id'));
+            const task = tasks.find(task => task.id === taskId);
+            
+            if (task) {
+                // Create edit form
+                const newName = prompt('Edit task name:', task.name);
+                if (newName !== null && newName.trim() !== '') {
+                    task.name = newName.trim();
+                }
+                
+                const newDate = prompt('Edit due date (YYYY-MM-DD):', task.dueDate);
+                if (newDate !== null) {
+                    task.dueDate = newDate;
+                }
+                
+                // Re-render tasks
+                renderTasks();
+                
+                console.log('Task updated:', task);
+            }
+        }
+    });
+}
