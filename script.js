@@ -24,3 +24,73 @@ function renderTasks() {
         }
     });
 }
+function createTaskCard(task) {
+    const taskElement = document.createElement('div');
+    taskElement.className = 'bg-white p-3 rounded shadow task-card';
+    taskElement.setAttribute('data-task-id', task.id);
+    
+    const displayDate = task.dueDate ? new Date(task.dueDate).toLocaleDateString() : 'No due date';
+    
+    taskElement.innerHTML = `
+        <div class="flex justify-between items-start mb-2">
+            <h3 class="font-semibold ${task.status === 'completed' ? 'line-through text-gray-500' : ''}">${task.name}</h3>
+            <div class="flex space-x-1">
+                <button class="edit-btn text-amber-600 hover:text-amber-800" data-id="${task.id}">
+                    <i class="fas fa-edit"></i>
+                </button>
+                <button class="delete-btn text-red-600 hover:text-red-800" data-id="${task.id}">
+                    <i class="fas fa-trash"></i>
+                </button>
+            </div>
+        </div>
+        <div class="flex justify-between items-center text-sm">
+            <span class="text-gray-600">Due: ${displayDate}</span>
+            <button class="status-btn ${task.status === 'pending' ? 'bg-green-500 hover:bg-green-600' : 'bg-gray-500 hover:bg-gray-600'} text-white px-2 py-1 rounded text-xs" data-id="${task.id}">
+                ${task.status === 'pending' ? 'Mark Complete' : 'Mark Incomplete'}
+            </button>
+        </div>
+    `;
+    
+    return taskElement;
+}
+// Add Task Functionality
+function setupAddTaskForms() {
+    const addTaskForms = document.querySelectorAll('.add-task-form');
+    
+    addTaskForms.forEach(form => {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const taskNameInput = this.querySelector('input[type="text"]');
+            const dueDateInput = this.querySelector('input[type="date"]');
+            const taskName = taskNameInput.value.trim();
+            const dueDate = dueDateInput.value;
+            
+            // Validation
+            if (!taskName) {
+                alert('Task name is required!');
+                return;
+            }
+            
+            // Create new task
+            const newTask = {
+                id: nextId++,
+                name: taskName,
+                dueDate: dueDate,
+                status: 'pending'
+            };
+            
+            // Add to tasks array
+            tasks.push(newTask);
+            
+            // Re-render tasks
+            renderTasks();
+            
+            // Reset form
+            taskNameInput.value = '';
+            dueDateInput.value = '';
+            
+            console.log('New task added:', newTask);
+        });
+    });
+}
